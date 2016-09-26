@@ -25,80 +25,34 @@
 #
 ########################################################################################################################
 
-import kgit, sys
+import os, kgit, subprocess
 
 
 #
-# list_w
+# run
 #
-# Used to list all current workspaces stored in the data store
-def list_w():
-    workspaces = kgit.get_file("workspaces")
-    if workspaces == "" or workspaces == "\n":
-        kgit.out("No workspaces available")
-        return
-    lines = workspaces.split("\n")
-    kgit.out("===============================================")
-    for line in lines:
-        if line == "":
+# Will run the purge
+def run():
+    kgit.out("Removing hooks")
+    workspaces = kgit.get_file("workspaces").split("\n")
+    for workspace in workspaces:
+        if workspace == "":
             continue
-        kgit.out(line)
-        kgit.out("===============================================")
+        for dir in os.listdir(workspace):
+            if is_git_repo(workspace + "/" + dir):
+                pre_commit = workspace + "/" + dir + "/.git/hooks/pre-commit"
+                kgit.out("Remove: " + pre_commit)
+                try:
+                    os.unlink(pre_commit)
+                except:
+                    pass
 
 
 #
-# add_w
+# is_git_repo
 #
-# Will add a workspace to the data store
-def add_w():
-    workspaces = kgit.get_file("workspaces")
-    if len(sys.argv) < 4:
-        workspace = raw_input("Workspace: ")
-    else:
-        workspace = sys.argv[3]
-    lines = workspaces.split("\n")
-    for line in lines:
-        if line == workspace:
-            kgit.out("Workspace exists - Not adding duplicate")
-            return
-    workspaces += workspace + "\n"
-    kgit.out("Adding workspace: " + workspace)
-    kgit.out("Workspaces are stored in ~/.kgit/workspaces")
-    kgit.write_data(workspaces, "workspaces")
-
-
-#
-# delete_w
-#
-# Will delete a workspace by criteria, where criteria is any string that can be matched on a record
-def delete_w():
-    workspaces = kgit.get_file("workspaces")
-
-    # Criteria
-    if len(sys.argv) < 4:
-        criteria = raw_input("Criteria: ")
-    else:
-        criteria = sys.argv[3]
-    lines = workspaces.split("\n")
-    workspacesToWrite = ""
-    delta = False
-    i = -1
-    llen = len(lines)
-    for line in lines:
-        i += 1
-        if criteria in line:
-            delta = True
-            kgit.out("Removing: " + line)
-            if i != (llen - 2):
-                workspacesToWrite += "\n"
-            continue
-        workspacesToWrite += line
-    if not delta:
-        kgit.out("No workspaces matching criteria found. Unable to delete.")
-        return
-    yn = raw_input("Continue? [y/n] : ")
-    if yn != "y":
-        return
-    # Okay we have confirmed, lets save
-    kgit.write_data(workspacesToWrite, "workspaces")
-    list_w()
+# Well validate a dir is a valid git repo
+def is_git_repo(dir):
+    if os.path.exists(dir + "/.git"):
+        return True
+    return False

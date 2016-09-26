@@ -1,0 +1,6 @@
+kgit.iml
+kgit.egg-info
+.idea
+dist
+build
+*.pyc

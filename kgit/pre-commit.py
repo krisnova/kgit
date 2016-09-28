@@ -100,14 +100,14 @@ def validate():
                 out("| Current   : " + this_user + " " + this_email)
                 out("| Expecting : " + user + " " + email)
                 out("----------------------------------------------------")
-                try_to_recover(this_remote)
+                find_matching_profile()
                 return False
 
     out("This repository is not managed by kgit")
     return True
 
 
-def try_to_recover(remote):
+def find_matching_profile(remote):
     with open(os.path.expanduser('~') + "/.kgit/profiles") as f:
         profiles = f.read()
 
@@ -117,12 +117,8 @@ def try_to_recover(remote):
         vals = line.split("|")  # 0-repo 1-email 2-name
         if vals[0] in remote:
             out("Found matching profile: " + vals[0])
-            yn = raw_input("Switch profiles? [y/n] : ")
-            if yn != "y":
-                return
-            subprocess.Popen(["git", "config", "--global", "user.name", vals[2]])
-            subprocess.Popen(["git", "config", "--global", "user.email", vals[1]])
-            out("Profile updated. You can now try to commit again.")
+            out("kgit profiles use " + vals[0])
+            return
 
 
 def get_git_config_vars():

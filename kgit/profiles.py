@@ -173,6 +173,8 @@ def get_git_config_vars():
         if line == "":
             continue
         kv = line.split("=")
+        if len(kv) <= 1:
+            continue
         vars[kv[0]] = kv[1]
     return vars
 

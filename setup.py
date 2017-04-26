@@ -10,7 +10,7 @@ with open(path.join(here, 'README'), encoding='utf-8') as f:
 
 setup(
     name='kgit',
-    version='1.0.3',
+    version='1.0.4',
     description='Commonly used git convenience functionality for todays modern developer.',
     long_description=long_description,
     url='https://github.com/kris-nova/kgit',

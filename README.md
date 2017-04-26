@@ -20,7 +20,7 @@ Commonly used git convenience functionality for today's modern developer.
     kgit profiles add <host> <user> <email>
 
  - **Host** This is the hostname of your git server. Usually something like `github.com`
- - **User**  This is the name you want associated with your commits. `Kris Childress`
+ - **User**  This is the name you want associated with your commits. `Kris Nova`
  - **Email** This is the email you want associated with your commits. `kris@nivenly.com`
 
 **Note**: If you forget the syntax just run `kgit profiles add` and you will be prompted.
@@ -47,21 +47,21 @@ The tool offers convenience, reminders, and suggestions. It will not change how 
 
 If we define a new profile for all **github.com** repositories.
 
-    kgit add profile github.com "Kris Childress" kris@nivenly.com
+    kgit add profile github.com "Kris Nova" kris@nivenly.com
 
 We can now `kgit profiles` to show our current configs. We can see what we have defined already.
 
     kgit :  ===============================================
     kgit :  ******     Current Git Config Profile     *****
     kgit :  ===============================================
-    kgit :  Name  : Charlie Childress
+    kgit :  Name  : Charlie Nova
     kgit :  Email : charlie@nivenly.com
     kgit :
     kgit :  ===============================================
     kgit :  ******     Current Registered Profiles    *****
     kgit :  ===============================================
     kgit :  Host  : github.com
-    kgit :  Name  : Kris Childress
+    kgit :  Name  : Kris Nova
     kgit :  Email : kris@nivenly.com
     kgit :  ===============================================
 

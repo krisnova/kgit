@@ -82,8 +82,8 @@ And we will see the commit will be interrupted
     kgit :  Running in kgit managed repository
     kgit :  Invalid Username/Email configuration!
     kgit :  ----------------------------------------------------
-    kgit :  | Current   : Charlie Childress charlie@nivenly.com
-    kgit :  | Expecting : Kris Childress kris@nivenly.com
+    kgit :  | Current   : Charlie Nova charlie@nivenly.com
+    kgit :  | Expecting : Kris Nova kris@nivenly.com
     kgit :  ----------------------------------------------------
     kgit :  Found matching profile: github.com
     Switch profiles? [y/n]: y

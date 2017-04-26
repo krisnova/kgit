@@ -3,7 +3,7 @@
 #
 # MIT License
 #
-# Copyright (c) [2016] [Kris Childress] [kris@nivenly.com]
+# Copyright (c) [2016] [Kris Nova] [kris@nivenly.com]
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@
 
 ########################################################################################################################
 #
-version = "1.0.1"
+version = "1.0.2"
 #
 ########################################################################################################################
 
@@ -36,7 +36,7 @@ from subprocess import call
 
 # Usage for the tool
 description = '''
-\033[1m[kgit]\033[0m V%s Written by Kris Childress <kris@nivenly.com>
+\033[1m[kgit]\033[0m V%s Written by Kris Nova <kris@nivenly.com>
 
     \033[1mkgit\033[0m is a simple utility for managing convenience functionality for git.
 

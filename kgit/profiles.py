@@ -3,7 +3,7 @@
 #
 # MIT License
 #
-# Copyright (c) [2016] [Kris Childress] [kris@nivenly.com]
+# Copyright (c) [2016] [Kris Nova] [kris@nivenly.com]
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -71,7 +71,7 @@ def list_p():
 #
 # Used to add a profile to the data store
 # Format:
-# github.com|kris@nivenly.com|Kris Childress
+# github.com|kris@nivenly.com|Kris Nova
 def add_p():
     profiles = kgit.get_file("profiles")
 
